@@ -142,6 +142,244 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* 🎬 YouTube Card Section */
+    .yt-card {
+      background-color: #2e333b;
+      border: 2px solid #ffd369;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 600px;
+      margin: 50px auto;
+      box-shadow: 0 0 20px rgba(255, 211, 105, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .yt-card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    .yt-card h2 {
+      color: #ffd369;
+      margin-bottom: 20px;
+    }
+    .yt-card p {
+      color: #eeeeee;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .yt-subscribe {
+      display: inline-block;
+      background-color: #ff0000;
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(255,0,0,0.5);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .yt-subscribe:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(255,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+  <div id="google_translate_element"></div>
+
+  <header>
+    <h1>FK WRITINGS</h1>
+    <p>Words That Reflect the Soul ✍️</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#reading">Reading Corner</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="container" id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>Hello! I'm Farhan, the voice behind FK WRITINGS. I write with the aim of capturing emotions, telling stories, and reflecting on life’s deep moments—whether in Arabic, English, or any other language.</p>
+    <p class="quote">“Some feelings are better written than spoken.”</p>
+  </section>
+
+  <section class="container" id="reading">
+    <h2 class="section-title">Reading Corner</h2>
+    <p>Choose a category to explore:</p>
+
+    <div class="categories">
+      <a href="stories.html" class="category">📖 Stories</a>
+      <a href="poems.html" class="category">📝 Poems</a>
+      <a href="essays.html" class="category">📚 Essays</a>
+      <a href="diaries.html" class="category">📔 Diaries</a>
+      <a href="travelogues.html" class="category">🌍 Travelogues</a>
+    </div>
+  </section>
+
+  <!-- 🎬 Updated YouTube Channel Card Section -->
+  <section class="container" id="youtube">
+    <div class="yt-card">
+      <h2>🎥 Check Out My YouTube Channel</h2>
+      <p>Step into my world on Farhan Talks — from real-life adventures to thoughts that inspire, laugh, and make you think. Watch, enjoy, and join the conversation!</p>
+      <a href="https://youtube.com/@farhantalks-w5j?si=3TWjx0bQgvZUX5i2" target="_blank" class="yt-subscribe">
+        🔔 Subscribe
+      </a>
+    </div>
+  </section>
+
+  <section class="container" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+   <p>📧 Email: 
+  <a href="mailto:farhantalks786@gmail.com" style="color: #ffd369; text-decoration: none;">
+    farhantalks786@gmail.com
+  </a>
+</p>
+
+<p>🌐 Instagram: 
+  <a href="https://instagram.com/farhantalks._" target="_blank" style="color: #ffd369; text-decoration: none;">
+    @farhantalks._
+  </a>
+</p>
+
+<p>💬 WhatsApp: 
+  <a href="https://wa.me/919207864284" target="_blank" style="color: #25D366; text-decoration: none;">
+    +91 9207864284
+  </a>
+</p>
+
+<p>📞 Call: 
+  <a href="tel:+919207864284" style="color: #4CAF50; text-decoration: none;">
+    +91 9207864284
+  </a>
+</p>
+
+  </section>
+
+  <footer>
+    &copy; 2025 FK WRITINGS | All rights reserved.
+  </footer>
+
+  <!-- Google Translate Scripts -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {pageLanguage: 'en', includedLanguages: 'en,ar,ml,ur,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--main-color);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      background-color: #1c1f25;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .container {
+      padding: 3rem 10%;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+    }
+
+    .quote {
+      font-style: italic;
+      margin-top: 1rem;
+      color: #bbbbbb;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .category {
+      flex: 1 1 160px;
+      background-color: #444950;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .category:hover {
+      background-color: var(--accent-color);
+      color: #000;
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1c1f25;
+      color: #888;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -221,3 +459,4 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+
