@@ -4,46 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Essays | FK WRITINGS</title>
-  <style>
-  #google_translate_element {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 9999;
-  }
-</style>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {pageLanguage: 'en', includedLanguages: 'en,ar,ml,ur,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-      'google_translate_element'
-    );
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <style>
-    body { font-family: Arial, sans-serif; background-color: #222831; color: #eeeeee; margin: 0; }
-    header { background: #393e46; padding: 2rem; text-align: center; }
-    header h1 { color: #ffd369; font-size: 2.5rem; }
-    header p { color: #bbb; font-style: italic; }
-    .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-    .post-card { 
-      background: #2e333b; 
-      padding: 1.5rem; 
-      margin-bottom: 1.5rem; 
-      border-radius: 8px; 
-      box-shadow: 0 3px 6px rgba(0,0,0,0.3); 
-      transition: transform 0.3s; 
+    /* Google Translate Button */
+    #google_translate_element {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222831;
+      color: #eeeeee;
+      margin: 0;
+    }
+
+    header {
+      background: #393e46;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #ffd369;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      color: #bbb;
+      font-style: italic;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .post-card {
+      background: #2e333b;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
       cursor: pointer;
     }
-    .post-card:hover { transform: translateY(-5px); }
-    .post-title { font-size: 1.5rem; color: #ffd369; margin-bottom: 0.5rem; }
-    .post-date { font-size: 0.9rem; color: #aaa; margin-bottom: 1rem; }
-    .post-desc { color: #ddd; }
-    footer { background: #1c1f25; color: #888; text-align: center; padding: 1rem; margin-top: 3rem; }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-title {
+      font-size: 1.5rem;
+      color: #ffd369;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .post-desc {
+      color: #ddd;
+    }
+
+    footer {
+      background: #1c1f25;
+      color: #888;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
   </style>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {pageLanguage: 'en', includedLanguages: 'en,ar,ml,ur,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
+
 <body>
   <div id="google_translate_element"></div>
 
@@ -52,47 +101,34 @@
     <p>"Essays are the bridges between thoughts and readers."</p>
   </header>
 
-  <div class="container">
-    <!-- Essay 1 -->
-    <div class="post-card" onclick="window.location.href='essay1.html'">
-      <div class="post-title">Youth Creating a Peaceful Future</div>
-      <div class="post-date">Posted on: Feb 12, 2025</div>
-      <div class="post-desc">An essay on how education shapes leadership for the future...</div>
-    </div>
-
-    <!-- Essay 2 -->
-    <div class="post-card" onclick="window.location.href='essay2.html'">
-      <div class="post-title">Russian Muslims – under the Communist rule</div>
-      <div class="post-date">Posted on: Feb 19, 2025</div>
-      <div class="post-desc">An overview of the struggles and resilience of Russian Muslims under Communist rule...</div>
-    </div>
-
-    <!-- Essay 3 -->
-    <div class="post-card" onclick="window.location.href='essay3.html'">
-      <div class="post-title">Islam & Its Influence On Political And Social Situation</div>
-      <div class="post-date">Posted on: Feb 19, 2025</div>
-      <div class="post-desc">This essay explores how Islam, as both a faith and way of life,has deeply shaped political structures and social relations...</div>
-    </div>
-
-    <!-- Essay 4 -->
-    <div class="post-card" onclick="window.location.href='essay4.html'">
-      <div class="post-title">Waqf Amendment Bill; A Reexamination </div>
-      <div class="post-date">Posted on: Feb 19, 2025</div>
-      <div class="post-desc">This essay critically reexamines the waqf amendment bill, analyzing its implications for governance, community rights...</div>
-    </div>
-
-    <!-- Essay 5 -->
-    <div class="post-card" onclick="window.location.href='essay5.html'">
-      <div class="post-title">The New Code of Law in Afghanistan_ Impacts and Challenges Under Taliban Rule </div>
-      <div class="post-date">Posted on: Feb 19, 2025</div>
-      <div class="post-desc">This essay examines the new code of law in Afghanistan, focusing on its impact on Islamic jurisprudence execution and other fields...</div>
-    </div>
-
-
+  <!-- Dynamic essay section -->
+  <div class="container" id="essay-container">
+    <!-- Essays will appear here automatically -->
   </div>
 
   <footer>
     &copy; 2025 FK WRITINGS | All Rights Reserved.
   </footer>
+
+  <script>
+    // Load essays dynamically from essays.json
+    fetch('essays.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('essay-container');
+        data.forEach(essay => {
+          const card = document.createElement('div');
+          card.classList.add('post-card');
+          card.onclick = () => window.location.href = essay.link;
+          card.innerHTML = `
+            <div class="post-title">${essay.title}</div>
+            <div class="post-date">Posted on: ${essay.date}</div>
+            <div class="post-desc">${essay.desc}</div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error loading essays:', error));
+  </script>
 </body>
 </html>
