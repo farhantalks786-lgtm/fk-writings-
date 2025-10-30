@@ -28,7 +28,7 @@
     header h1 { color: #ffd369; font-size: 2.5rem; }
     header p { color: #bbb; font-style: italic; }
     .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-    .post-card { background: #2e333b; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s; }
+    .post-card { background: #2e333b; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s; cursor: pointer; }
     .post-card:hover { transform: translateY(-5px); }
     .post-title { font-size: 1.5rem; color: #ffd369; margin-bottom: 0.5rem; }
     .post-date { font-size: 0.9rem; color: #aaa; margin-bottom: 1rem; }
@@ -44,17 +44,34 @@
     <p>"To travel is to live a thousand lives in one."</p>
   </header>
 
-  <div class="container">
-    <div class="post-card">
-      <div class="post-title">Midnight to Midnight: Our Wayanad Adventure</div>
-      <div class="post-date">Posted on: Oct 08, 2025</div>
-      <div class="post-desc">A spiritual escape into the lush greenery of Kerala’s hills.</div>
-    </div>
+  <!-- Dynamic travelogue section -->
+  <div class="container" id="travelogue-container">
+    <!-- Travelogues will appear here automatically -->
   </div>
 
   <footer>
     &copy; 2025 FK WRITINGS | All Rights Reserved.
   </footer>
+
+  <script>
+    // Load travelogues dynamically from travelogues.json
+    fetch('travelogues.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('travelogue-container');
+        data.forEach(travelogue => {
+          const card = document.createElement('div');
+          card.classList.add('post-card');
+          card.onclick = () => window.location.href = travelogue.link;
+          card.innerHTML = `
+            <div class="post-title">${travelogue.title}</div>
+            <div class="post-date">Posted on: ${travelogue.date}</div>
+            <div class="post-desc">${travelogue.desc}</div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error loading travelogues:', error));
+  </script>
 </body>
 </html>
-
