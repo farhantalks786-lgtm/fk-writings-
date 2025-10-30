@@ -28,7 +28,7 @@
     header h1 { color: #ffd369; font-size: 2.5rem; }
     header p { color: #bbb; font-style: italic; }
     .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-    .post-card { background: #2e333b; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s; }
+    .post-card { background: #2e333b; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s; cursor: pointer; }
     .post-card:hover { transform: translateY(-5px); }
     .post-title { font-size: 1.5rem; color: #ffd369; margin-bottom: 0.5rem; }
     .post-date { font-size: 0.9rem; color: #aaa; margin-bottom: 1rem; }
@@ -44,21 +44,34 @@
     <p>"Poetry is the language of the heart when words fall short."</p>
   </header>
 
-  <div class="container">
-    <div class="post-card">
-      <div class="post-title">A Silent Pen</div>
-      <div class="post-date">Posted on: Feb 10, 2025</div>
-      <div class="post-desc">The beauty of expressing pain through poetry.</div>
-    </div>
-    <div class="post-card">
-      <div class="post-title">Whispers of the Night</div>
-      <div class="post-date">Posted on: Feb 18, 2025</div>
-      <div class="post-desc">A poem about solitude and hope beneath the stars.</div>
-    </div>
+  <!-- Dynamic poems section -->
+  <div class="container" id="poem-container">
+    <!-- Poems will appear here automatically -->
   </div>
 
   <footer>
     &copy; 2025 FK WRITINGS | All Rights Reserved.
   </footer>
+
+  <script>
+    // Load poems dynamically from poems.json
+    fetch('poems.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('poem-container');
+        data.forEach(poem => {
+          const card = document.createElement('div');
+          card.classList.add('post-card');
+          card.onclick = () => window.location.href = poem.link;
+          card.innerHTML = `
+            <div class="post-title">${poem.title}</div>
+            <div class="post-date">Posted on: ${poem.date}</div>
+            <div class="post-desc">${poem.desc}</div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error loading poems:', error));
+  </script>
 </body>
 </html>
