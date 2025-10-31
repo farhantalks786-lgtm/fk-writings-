@@ -34,6 +34,39 @@
     .post-date { font-size: 0.9rem; color: #aaa; margin-bottom: 1rem; }
     .post-desc { color: #ddd; }
     footer { background: #1c1f25; color: #888; text-align: center; padding: 1rem; margin-top: 3rem; }
+
+    /* Popup Style */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center; align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background: #2e333b;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      animation: pop 0.3s ease;
+    }
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .popup-content h2 { color: #ffd369; margin-bottom: 1rem; }
+    .popup-content p { color: #ccc; margin-bottom: 1rem; }
+    .close-btn {
+      background: #ffd369;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -44,9 +77,16 @@
     <p>"Poetry is the language of the heart when words fall short."</p>
   </header>
 
-  <!-- Dynamic poems section -->
-  <div class="container" id="poem-container">
-    <!-- Poems will appear here automatically -->
+  <div class="container" id="poem-container"></div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2 id="popup-title"></h2>
+      <p id="popup-desc"></p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+      <button class="close-btn" id="read-btn">Read Full Poem</button>
+    </div>
   </div>
 
   <footer>
@@ -54,7 +94,7 @@
   </footer>
 
   <script>
-    // Load poems dynamically from poems.json
+    // Load poems dynamically
     fetch('poems.json')
       .then(response => response.json())
       .then(data => {
@@ -62,16 +102,36 @@
         data.forEach(poem => {
           const card = document.createElement('div');
           card.classList.add('post-card');
-          card.onclick = () => window.location.href = poem.link;
           card.innerHTML = `
             <div class="post-title">${poem.title}</div>
             <div class="post-date">Posted on: ${poem.date}</div>
             <div class="post-desc">${poem.desc}</div>
           `;
+          card.addEventListener('click', () => openPopup(poem));
           container.appendChild(card);
         });
       })
       .catch(error => console.error('Error loading poems:', error));
+
+    // Popup functions
+    function openPopup(poem) {
+      document.getElementById('popup-title').innerText = poem.title;
+      document.getElementById('popup-desc').innerText = poem.desc;
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+      document.getElementById('read-btn').onclick = () => window.location.href = poem.link;
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const popup = document.getElementById('popup');
+      if (event.target === popup) {
+        popup.style.display = 'none';
+      }
+    }
   </script>
 </body>
 </html>
