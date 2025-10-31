@@ -80,6 +80,106 @@
       padding: 1rem;
       margin-top: 3rem;
     }
+
+    /* ✨ Modern Popup Menu Styles */
+    #menuButton {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 10000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    #menuButton:hover {
+      background: linear-gradient(135deg, #333, #000);
+      transform: scale(1.05);
+    }
+
+    #menuDialog {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    #menuDialog.hidden {
+      display: none;
+    }
+
+    .menu-content {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 30px 40px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      width: 80%;
+      max-width: 320px;
+      color: #fff;
+      animation: slideUp 0.4s ease forwards;
+    }
+
+    .menu-content h3 {
+      font-size: 1.3em;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    }
+
+    .menu-content a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #f0f0f0;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+
+    .menu-content a:hover {
+      color: #fff;
+      transform: scale(1.08);
+      text-shadow: 0 0 8px #fff;
+    }
+
+    #closeMenu {
+      margin-top: 15px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    #closeMenu:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px) scale(0.95); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
   </style>
 
   <script type="text/javascript">
@@ -95,6 +195,22 @@
 
 <body>
   <div id="google_translate_element"></div>
+
+  <!-- ✨ Menu Button + Popup -->
+  <button id="menuButton">☰ Menu</button>
+
+  <div id="menuDialog" class="hidden">
+    <div class="menu-content">
+      <h3>📖 FK WRITINGS</h3>
+      <a href="index.html">🏠 Home</a>
+      <a href="essays.html">📝 Essays</a>
+      <a href="stories.html">📚 Stories</a>
+      <a href="travelogues.html">🌍 Travelogues</a>
+      <a href="poems.html">✍️ Poems</a>
+      <a href="diaries.html">📔 Diaries</a>
+      <button id="closeMenu">✖ Close</button>
+    </div>
+  </div>
 
   <header>
     <h1>Essays</h1>
@@ -129,6 +245,26 @@
         });
       })
       .catch(error => console.error('Error loading essays:', error));
+
+    // Menu popup controls
+    const menuButton = document.getElementById('menuButton');
+    const menuDialog = document.getElementById('menuDialog');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuButton.addEventListener('click', () => {
+      menuDialog.classList.remove('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      menuDialog.classList.add('hidden');
+    });
+
+    // Close when clicking outside
+    menuDialog.addEventListener('click', (e) => {
+      if (e.target === menuDialog) {
+        menuDialog.classList.add('hidden');
+      }
+    });
   </script>
 </body>
 </html>
